@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.8
+FROM python:3.10
 
 # Set a non-root user with a specific user ID
 # Replace '10014' with the desired user ID
@@ -10,6 +10,8 @@ WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 COPY . /app
+
+RUN pip install --upgrade pip 
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
