@@ -10,8 +10,6 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-RUN chmod -R 777 /.local
-
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir --user -r requirements.txt
 
