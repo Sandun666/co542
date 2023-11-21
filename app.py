@@ -3,14 +3,14 @@ import base64
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 from PIL import Image
-import pickle
+import joblib
 import io
 import os
 from skimage.color import rgb2gray
 from skimage.transform import resize
 
 app = Flask(__name__)
-model = pickle.load(open('models/cats_and_dogs.pkl','rb'))
+model = joblib.load(open('models/cats_and_dogs.pkl','rb'))
 
 @app.route('/')
 def home():
