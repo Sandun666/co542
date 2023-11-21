@@ -1,30 +1,24 @@
-# Use the official Python image as the base image
+# Use an official Python runtime as a parent image
 FROM python:3.8
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# Set a non-root user with a specific user ID
+# Replace '10014' with the desired user ID
+USER 10014
 
-# Create a non-root user
-RUN useradd -ms /bin/bash appuser
-
-# Set the working directory in the container
+# Set the working directory to /app
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install any dependencies specified in requirements.txt
+# Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Change the ownership of the /app directory to the non-root user
-RUN chown -R appuser:appuser /app
-
-# Switch to the non-root user
-USER appuser
-
-# Expose the port the app runs on
+# Make port 80 available to the world outside this container
 EXPOSE 5000
 
-# Run the application
+# Define environment variable
+ENV NAME World
+
+# Run app.py when the container launches
 CMD ["python", "app.py"]
