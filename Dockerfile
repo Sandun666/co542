@@ -2,7 +2,7 @@
 FROM python:3.10
 
 # Set a non-root user with a specific user ID
-USER 10014
+USER root
 
 # Set the working directory to /app
 WORKDIR /app
