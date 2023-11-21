@@ -1,6 +1,6 @@
 Flask
 scikit-learn
-tensorflow
+tensorflow==2.7.0
 numpy
 scikit-image
 gunicorn
