@@ -2,7 +2,7 @@
 FROM python:3.10
 
 # Set a non-root user with a specific user ID
-RUN adduser 10001
+# RUN adduser 10001
 USER root
 
 # Set the working directory to /app
@@ -20,7 +20,7 @@ EXPOSE 5000
 # Define environment variable
 ENV NAME World
 
-USER 10001
+USER 10014
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
